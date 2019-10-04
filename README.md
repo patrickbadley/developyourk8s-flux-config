@@ -47,6 +47,7 @@ helm upgrade -i flux \
 --set helmOperator.createCRD=false \
 --set git.url=git@github.com:patrickbadley/developyourk8s-flux-config.git \
 --set git.pollInterval="10s" \
+--set syncInterval="10s" \
 --namespace flux \
 fluxcd/flux
 ```
