@@ -68,6 +68,11 @@ helm upgrade cert-manager     stable/cert-manager     --namespace kube-system   
 ```
 13. Now go to https://developyourk8s.eastus.cloudapp.azure.com/ and see your app running!
 
+### Helpful commands 
+```bash
+kubectl -n flux logs deployment/flux -f
+```
+
 ### References: ###
 1. https://github.com/stefanprodan/gitops-helm
 2. https://docs.microsoft.com/en-us/azure/aks/ingress-tls
