@@ -54,7 +54,7 @@ fluxcd/flux
 kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
 ```
 8. Copy the result
-9. Fork this repo (you will need to update references to the repository name in releases/default/developYourK8sRelease.yaml)
+9. Fork this repo (you will need to update references to the repository name in releases/default/developYourK8sRelease.yaml and url in charts/developyourk8s/values.yaml)
 10. Add a github deploy key to your new repo  
   a. Under Settings, choose deploy keys  
   b. Click Add   
