@@ -1,4 +1,5 @@
 ## Installing Cluster Using Flux in Azure AKS ##
+0. Fork this repo (you will need to update references to the repository name in releases/default/developYourK8sRelease.yaml and url in charts/developyourk8s/values.yaml as well as any references to developyourk8s in this readme)
 
 1. Connect to your k8s cluster in azure cli
 ```bash
@@ -54,23 +55,26 @@ fluxcd/flux
 kubectl -n flux logs deployment/flux | grep identity.pub | cut -d '"' -f2
 ```
 8. Copy the result
-9. Fork this repo (you will need to update references to the repository name in releases/default/developYourK8sRelease.yaml and url in charts/developyourk8s/values.yaml)
-10. Add a github deploy key to your new repo  
+9. Add a github deploy key to your new repo  
   a. Under Settings, choose deploy keys  
   b. Click Add   
   c. Name it "flux" and paste the value in the box  
   d. Check the box to allow write access  
   e. Click Add key  
-11. Flux will now configure your cluster!
-12. One last piece is to configure cert-manager, a tool that manages ssl certificates for us
+10. Flux will now configure your cluster!
+11. One last piece is to configure cert-manager, a tool that manages ssl certificates for us
 ```bash
 helm upgrade cert-manager     stable/cert-manager     --namespace kube-system     --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
-13. Now go to https://developyourk8s.eastus.cloudapp.azure.com/ and see your app running!
+12. Now go to https://developyourk8s.eastus.cloudapp.azure.com/ and see your app running!
 
 ### Helpful commands 
 ```bash
 kubectl -n flux logs deployment/flux -f
+
+kubectl get pods
+
+
 ```
 
 ### References: ###
